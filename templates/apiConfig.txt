@@ -1,0 +1,11 @@
+<?php
+return [
+    'namespace' => '$name',
+    'slim-api' => [
+        'modules' => [
+            'SlimPhinx', //provides migrations
+            'SlimEloquent', //provides ORM
+            'SlimMvc' //provides structure
+        ]
+    ]
+];
