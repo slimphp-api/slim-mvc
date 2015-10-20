@@ -1,5 +1,5 @@
 <?php
-namespace SlimMvc\Generator;
+namespace SlimApi\Mvc\Generator;
 
 use SlimApi\Generator\GeneratorInterface;
 

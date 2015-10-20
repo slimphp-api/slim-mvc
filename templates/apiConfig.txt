@@ -3,9 +3,9 @@ return [
     'namespace' => '$name',
     'slim-api' => [
         'modules' => [
-            'SlimPhinx', //provides migrations
-            'SlimEloquent', //provides ORM
-            'SlimMvc' //provides structure
+            'SlimApi\Phinx', //provides migrations
+            'SlimApi\Eloquent', //provides ORM
+            'SlimApi\Mvc' //provides structure
         ]
     ]
 ];

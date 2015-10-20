@@ -61,11 +61,11 @@ $config['services.skeleton.structure'] = function($container) {
     ];
 };
 
-$config['SlimMvc\Controller\ControllerInterface'] = function($container) {
-    return 'SlimMvc\Controller\ControllerService';
+$config['SlimApi\Mvc\Controller\ControllerInterface'] = function($container) {
+    return 'SlimApi\Mvc\Controller\ControllerService';
 };
 
-$config['SlimMvc\Controller\ControllerInterface.populated'] = function($container) {
+$config['SlimApi\Mvc\Controller\ControllerInterface.populated'] = function($container) {
     $indexAction     = file_get_contents($container->get('templateDir').'/indexAction.txt');
     $getAction       = file_get_contents($container->get('templateDir').'/getAction.txt');
     $postAction      = file_get_contents($container->get('templateDir').'/postAction.txt');
@@ -73,18 +73,18 @@ $config['SlimMvc\Controller\ControllerInterface.populated'] = function($containe
     $deleteAction    = file_get_contents($container->get('templateDir').'/deleteAction.txt');
     $controllerClass = file_get_contents($container->get('templateDir').'/ControllerClass.txt');
     $controllerCons  = file_get_contents($container->get('templateDir').'/ControllerConstructor.txt');
-    $service         = $container->get('SlimMvc\Controller\ControllerInterface');
+    $service         = $container->get('SlimApi\Mvc\Controller\ControllerInterface');
     return new $service($indexAction, $getAction, $postAction, $putAction, $deleteAction, $controllerClass, $controllerCons, $container->get('namespace'));
 };
 
-$config['SlimMvc\Controller\ControllerInterface.empty'] = function($container) {
+$config['SlimApi\Mvc\Controller\ControllerInterface.empty'] = function($container) {
     $indexAction     = file_get_contents($container->get('templateDir').'/emptyIndexAction.txt');
     $getAction       = file_get_contents($container->get('templateDir').'/emptyGetAction.txt');
     $postAction      = file_get_contents($container->get('templateDir').'/emptyPostAction.txt');
     $putAction       = file_get_contents($container->get('templateDir').'/emptyPutAction.txt');
     $deleteAction    = file_get_contents($container->get('templateDir').'/emptyDeleteAction.txt');
     $controllerClass = file_get_contents($container->get('templateDir').'/ControllerClass.txt');
-    $service         = $container->get('SlimMvc\Controller\ControllerInterface');
+    $service         = $container->get('SlimApi\Mvc\Controller\ControllerInterface');
     return new $service($indexAction, $getAction, $postAction, $putAction, $deleteAction, $controllerClass, '', $container->get('namespace'));
 };
 
@@ -95,27 +95,27 @@ $config['SlimApi\Service\DependencyService'] = function($container) {
     return $service;
 };
 
-$config['SlimMvc\Generator\ModelGenerator'] = function($container) {
-    return new SlimMvc\Generator\ModelGenerator($container->get('SlimApi\Model\ModelInterface'), $container->get('SlimApi\Migration\MigrationInterface'), $container->get('SlimApi\Service\DependencyService'));
+$config['SlimApi\Mvc\Generator\ModelGenerator'] = function($container) {
+    return new SlimApi\Mvc\Generator\ModelGenerator($container->get('SlimApi\Model\ModelInterface'), $container->get('SlimApi\Migration\MigrationInterface'), $container->get('SlimApi\Service\DependencyService'));
 };
 
-$config['SlimMvc\Generator\ControllerGenerator.empty'] = function($container) {
-    return new SlimMvc\Generator\ControllerGenerator($container->get('SlimMvc\Controller\ControllerInterface.empty'), $container->get('SlimApi\Service\RouteService'), $container->get('SlimApi\Service\DependencyService'));
+$config['SlimApi\Mvc\Generator\ControllerGenerator.empty'] = function($container) {
+    return new SlimApi\Mvc\Generator\ControllerGenerator($container->get('SlimApi\Mvc\Controller\ControllerInterface.empty'), $container->get('SlimApi\Service\RouteService'), $container->get('SlimApi\Service\DependencyService'));
 };
 
-$config['SlimMvc\Generator\ControllerGenerator.populated'] = function($container) {
-    return new SlimMvc\Generator\ControllerGenerator($container->get('SlimMvc\Controller\ControllerInterface.populated'), $container->get('SlimApi\Service\RouteService'), $container->get('SlimApi\Service\DependencyService'));
+$config['SlimApi\Mvc\Generator\ControllerGenerator.populated'] = function($container) {
+    return new SlimApi\Mvc\Generator\ControllerGenerator($container->get('SlimApi\Mvc\Controller\ControllerInterface.populated'), $container->get('SlimApi\Service\RouteService'), $container->get('SlimApi\Service\DependencyService'));
 };
 
-$config['SlimMvc\Generator\ScaffoldGenerator'] = function($container) {
-    return new SlimMvc\Generator\ScaffoldGenerator($container->get('SlimMvc\Generator\ControllerGenerator.populated'), $container->get('SlimMvc\Generator\ModelGenerator'));
+$config['SlimApi\Mvc\Generator\ScaffoldGenerator'] = function($container) {
+    return new SlimApi\Mvc\Generator\ScaffoldGenerator($container->get('SlimApi\Mvc\Generator\ControllerGenerator.populated'), $container->get('SlimApi\Mvc\Generator\ModelGenerator'));
 };
 
-$config['SlimMvc\Init'] = function($container) {
+$config['SlimApi\Mvc\Init'] = function($container) {
     if ($container->has('namespace')) {
-        $container['SlimApi\Factory\GeneratorFactory']->add('model', $container->get('SlimMvc\Generator\ModelGenerator'));
-        $container['SlimApi\Factory\GeneratorFactory']->add('controller', $container->get('SlimMvc\Generator\ControllerGenerator.empty'));
-        $container['SlimApi\Factory\GeneratorFactory']->add('scaffold', $container->get('SlimMvc\Generator\ScaffoldGenerator'));
+        $container['SlimApi\Factory\GeneratorFactory']->add('model', $container->get('SlimApi\Mvc\Generator\ModelGenerator'));
+        $container['SlimApi\Factory\GeneratorFactory']->add('controller', $container->get('SlimApi\Mvc\Generator\ControllerGenerator.empty'));
+        $container['SlimApi\Factory\GeneratorFactory']->add('scaffold', $container->get('SlimApi\Mvc\Generator\ScaffoldGenerator'));
     }
 };
 

@@ -1,9 +1,9 @@
 <?php
-namespace SlimMvcTest\Generator;
+namespace SlimApi\MvcTest\Generator;
 
 use SlimApi\Migration\MigrationInterface;
 use SlimApi\Model\ModelInterface;
-use SlimMvc\Generator\ModelGenerator;
+use SlimApi\Mvc\Generator\ModelGenerator;
 use SlimApi\Interfaces\GeneratorServiceInterface;
 use org\bovigo\vfs\vfsStream;
 
@@ -22,7 +22,7 @@ class DependencyServiceMock implements GeneratorServiceInterface {public functio
 
 class ModelGeneratorTest extends \PHPUnit_Framework_TestCase
 {
-    use \SlimMvcTest\DirectoryTrait;
+    use \SlimApi\MvcTest\DirectoryTrait;
     protected function setUp()
     {
         $this->modelGenerator = new ModelGenerator(new ModelServiceMock('', ''), new PhinxService(new PhinxApplication2Mock), new DependencyServiceMock);

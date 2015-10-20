@@ -1,5 +1,5 @@
 <?php
-namespace SlimMvc\Generator;
+namespace SlimApi\Mvc\Generator;
 
 use SlimApi\Model\ModelInterface;
 use SlimApi\Migration\MigrationInterface;

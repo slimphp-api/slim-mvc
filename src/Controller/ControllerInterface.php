@@ -1,5 +1,5 @@
 <?php
-namespace SlimMvc\Controller;
+namespace SlimApi\Mvc\Controller;
 
 
 interface ControllerInterface

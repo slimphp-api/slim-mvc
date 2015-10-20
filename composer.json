@@ -20,9 +20,9 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
-        "psr-4": {"SlimMvc\\": "src/"}
+        "psr-4": {"SlimApi\\Mvc\\": "src/"}
     },
     "autoload-dev": {
-        "psr-4": {"SlimMvcTest\\": "tests/phpunit/"}
+        "psr-4": {"SlimApi\\MvcTest\\": "tests/phpunit/"}
     }
 }

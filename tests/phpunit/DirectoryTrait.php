@@ -1,5 +1,5 @@
 <?php
-namespace SlimMvcTest;
+namespace SlimApi\MvcTest;
 trait DirectoryTrait
 {
     private function setupDirectory()
