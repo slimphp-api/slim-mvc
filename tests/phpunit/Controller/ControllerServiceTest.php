@@ -1,11 +1,11 @@
 <?php
-namespace SlimMvcTest\Controller;
+namespace SlimApi\MvcTest\Controller;
 
-use SlimMvc\Controller\ControllerService;
+use SlimApi\Mvc\Controller\ControllerService;
 
 class ControllerServiceTest extends \PHPUnit_Framework_TestCase
 {
-    use \SlimMvcTest\DirectoryTrait;
+    use \SlimApi\MvcTest\DirectoryTrait;
     protected function setUp()
     {
         $controllerClass =<<<'EOL'

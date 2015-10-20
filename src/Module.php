@@ -1,5 +1,5 @@
 <?php
-namespace SlimMvc;
+namespace SlimApi\Mvc;
 
 class Module
 {

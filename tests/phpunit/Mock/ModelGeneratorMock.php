@@ -1,8 +1,8 @@
 <?php
-namespace SlimMvcTest\Mock;
+namespace SlimApi\MvcTest\Mock;
 
-use SlimMvc\Generator\ModelGenerator;
-use SlimMvc\Command\GenerateCommand;
+use SlimApi\Mvc\Generator\ModelGenerator;
+use SlimApi\Mvc\Command\GenerateCommand;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 

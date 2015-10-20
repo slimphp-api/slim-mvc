@@ -14,5 +14,7 @@
     },
     "autoload-dev": {
         "psr-4": {"$nameTest\\": "tests/phpunit/"}
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

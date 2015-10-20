@@ -1,7 +1,7 @@
 <?php
-namespace SlimMvc\Generator;
+namespace SlimApi\Mvc\Generator;
 
-use SlimMvc\Controller\ControllerInterface;
+use SlimApi\Mvc\Controller\ControllerInterface;
 use SlimApi\Interfaces\GeneratorServiceInterface;
 use SlimApi\Generator\GeneratorInterface;
 

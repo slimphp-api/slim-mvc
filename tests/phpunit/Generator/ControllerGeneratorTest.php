@@ -1,8 +1,8 @@
 <?php
-namespace SlimMvcTest\Generator;
+namespace SlimApi\MvcTest\Generator;
 
-use SlimMvc\Controller\ControllerInterface;
-use SlimMvc\Generator\ControllerGenerator;
+use SlimApi\Mvc\Controller\ControllerInterface;
+use SlimApi\Mvc\Generator\ControllerGenerator;
 use SlimApi\Interfaces\GeneratorServiceInterface;
 
 class RouteServiceMock implements GeneratorServiceInterface {public function processCommand($type, ...$arguments){} public function create($name){} public function targetLocation($name){}}
@@ -11,7 +11,7 @@ class DependencyServiceMock1 implements GeneratorServiceInterface {public functi
 
 class ControllerGeneratorTest extends \PHPUnit_Framework_TestCase
 {
-    use \SlimMvcTest\DirectoryTrait;
+    use \SlimApi\MvcTest\DirectoryTrait;
     protected function setUp()
     {
         $this->controllerGenerator = new ControllerGenerator(new ControllerServiceMock, new RouteServiceMock, new DependencyServiceMock1);
