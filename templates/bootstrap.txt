@@ -1,11 +1,15 @@
 <?php
 use Slim\App;
 
-$config = (new $name\Module)->loadDependencies();
+$config = (new SlimApi\Module)->loadDependencies();
 $app    = new App($config);
 
 // DIC configuration
 $container = $app->getContainer();
+
+foreach ($container->get('slim-api')['modules'] as $moduleNamespace) {
+    $container->get($moduleNamespace.'\Init');
+}
 
 // Register middleware
 require 'middleware.php';
