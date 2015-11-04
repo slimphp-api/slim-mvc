@@ -1,6 +1,7 @@
 public function postAction($request, $response, $args)
 {
     $model = new $this->model($request->getParsedBody());
+    $model->save();
     $response->write($model);
     return $response;
 }

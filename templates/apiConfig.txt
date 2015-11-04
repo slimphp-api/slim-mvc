@@ -7,5 +7,9 @@ return [
             'SlimApi\Eloquent', //provides ORM
             'SlimApi\Mvc' //provides structure
         ]
+    ],
+    'modules' => [
+        'SlimApi\Phinx', //provides migrations
+        'SlimApi\Eloquent', //provides ORM
     ]
 ];

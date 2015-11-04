@@ -7,6 +7,10 @@ $app    = new App($config);
 // DIC configuration
 $container = $app->getContainer();
 
+foreach ($container->get('modules') as $moduleNamespace) {
+    $container->get($moduleNamespace.'\Init');
+}
+
 // Register middleware
 require 'middleware.php';
 
