@@ -30,9 +30,9 @@ class ScaffoldGenerator implements GeneratorInterface
     /**
      * {@inheritdoc}
      */
-    public function process($name, $fields)
+    public function process($name, $fields, $options)
     {
-        $this->modelGenerator->process($name, $fields);
-        $this->controllerGenerator->process($name, []);
+        $this->modelGenerator->process($name, $fields, $options);
+        $this->controllerGenerator->process($name, [], $options);
     }
 }

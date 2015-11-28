@@ -46,7 +46,7 @@ class ControllerGenerator implements GeneratorInterface
     /**
      * {@inheritdoc}
      */
-    public function process($name, $fields, $options = [])
+    public function process($name, $fields, $options)
     {
         $name = ucfirst($name);
         if (0 === count($fields)) {
