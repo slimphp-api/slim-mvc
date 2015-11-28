@@ -306,12 +306,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp-api/slim-api.git",
-                "reference": "e746eb0f10199a3dce2bfeab3cff3943e4efdfb5"
+                "reference": "b2e548bd220733c05a5544fa883c0d707ffecf3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp-api/slim-api/zipball/e746eb0f10199a3dce2bfeab3cff3943e4efdfb5",
-                "reference": "e746eb0f10199a3dce2bfeab3cff3943e4efdfb5",
+                "url": "https://api.github.com/repos/slimphp-api/slim-api/zipball/b2e548bd220733c05a5544fa883c0d707ffecf3e",
+                "reference": "b2e548bd220733c05a5544fa883c0d707ffecf3e",
                 "shasum": ""
             },
             "require": {
@@ -353,7 +353,7 @@
                 "slim",
                 "slimapi"
             ],
-            "time": "2015-11-22 20:07:38"
+            "time": "2015-11-28 01:31:39"
         },
         {
             "name": "slimphp-api/slim-phinx",
