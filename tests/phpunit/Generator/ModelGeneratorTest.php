@@ -51,13 +51,13 @@ class ModelGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function testSimpleProcess()
     {
-        $this->modelGenerator->process('foo', []);
+        $this->modelGenerator->process('foo', [], []);
         $this->assertEquals($this->modelGenerator->migrationService->commands, ['create', 'finalise']);
     }
 
     public function testProcess()
     {
-        $this->modelGenerator->process('foo', ['id:integer']);
+        $this->modelGenerator->process('foo', ['id:integer'], []);
         $this->assertEquals($this->modelGenerator->migrationService->commands, ['create', 'addColumn', 'finalise']);
     }
 }

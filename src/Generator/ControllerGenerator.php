@@ -46,11 +46,17 @@ class ControllerGenerator implements GeneratorInterface
     /**
      * {@inheritdoc}
      */
-    public function process($name, $fields)
+    public function process($name, $fields, $options)
     {
         $name = ucfirst($name);
         if (0 === count($fields)) {
             $fields = $this->validActions;
+        }
+
+        foreach ($options as $optionName => $optionValue) {
+            if (!in_array($optionName, ['versions'])) {
+                unset($options[$optionName]);
+            }
         }
 
         foreach ($fields as $action) {
@@ -61,8 +67,8 @@ class ControllerGenerator implements GeneratorInterface
         $this->dependencyService->processCommand('injectController', $name);
 
         $this->controllerService->create($name);
-        $this->routeService->create($name);
-        $this->dependencyService->create($name);
+        $this->routeService->create($name, $options);
+        $this->dependencyService->create($name, $options);
     }
 
     /**

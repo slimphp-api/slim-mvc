@@ -38,13 +38,13 @@ class ControllerGeneratorTest extends \PHPUnit_Framework_TestCase
 
     public function testProcessIndex()
     {
-        $this->controllerGenerator->process('Foo', ['index']);
+        $this->controllerGenerator->process('Foo', ['index'], []);
         $this->assertEquals(['index'], $this->controllerGenerator->controllerService->commands);
     }
 
     public function testProcessNone()
     {
-        $this->controllerGenerator->process('Foo', []);
+        $this->controllerGenerator->process('Foo', [], []);
         $this->assertEquals(['index', 'get', 'post', 'put', 'delete'], $this->controllerGenerator->controllerService->commands);
     }
 }

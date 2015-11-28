@@ -38,7 +38,7 @@ class ModelGenerator implements GeneratorInterface
     /**
      * {@inheritdoc}
      */
-    public function process($name, $fields)
+    public function process($name, $fields, $options)
     {
         $name = ucfirst($name);
         $this->processCreateMigration($name, $fields);

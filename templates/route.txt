@@ -1,1 +1,3 @@
-$app->map($methodMap, '$route', '$controllerCallable');
+$app->group('$version', function () {
+    $this->map($methodMap, '$route', '$controllerCallable');
+});
